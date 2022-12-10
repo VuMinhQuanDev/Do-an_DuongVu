@@ -5,10 +5,14 @@ const formLogin = document.querySelector(".form-login");
 const formRegister = document.querySelector(".form-register");
 
 const submit = document.querySelector(".form-submit");
+const nameValue = document.getElementById("name-input");
 const emailValue = document.getElementById("email-input");
 const passwordValue = document.getElementById("password-input");
+const confirmPasswordValue = document.getElementById("confirmPassword-input");
 const errorEmail = document.querySelector(".errorMesEmail");
 const errorPassword = document.querySelector(".errorMesPassword");
+// const errorName = document.querySelector(".name-input");
+const errorConfirmPassword = document.querySelector(".confirmPassword-error");
 const regEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 const regPass = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
 
@@ -20,12 +24,31 @@ passwordValue.onchange = (e) => {
   checkPassword(e.target.value);
 };
 
-const login = async () => {
-  const response = await fetch("http://localhost:3000/account").then((res) =>
-    res.json()
-  );
-  return response;
+confirmPasswordValue.onchange = (e) => {
+  checkConfirm(e.target.value);
 };
+
+const register = async (obj) => {
+    const response = await fetch("http://localhost:3000/account", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      redirect: 'follow',
+      body: JSON.stringify(obj)
+    })
+    return response;
+  };
+
+function checkConfirm(value) {
+  if (passwordValue.value === value) {
+    errorConfirmPassword.textContent = "";
+    return true;
+  } else {
+    errorConfirmPassword.textContent = "Mat khau khong khop";
+    return false;
+  }
+}
 
 function checkEmail(value) {
   if (regEmail.test(value)) {
@@ -48,19 +71,14 @@ function checkPassword(value) {
   }
 }
 
-function checkValidate() {
-  login().then((data) =>
-    data.find(
-      (item) =>
-        item.username === emailValue.value &&
-        item.password === passwordValue.value
-    )
-      ? alert("Dang nhap thanh cong")
-      : alert("Sai tai khoan")
-  );
-}
-
-formLogin.onsubmit = (e) => {
+formRegister.onsubmit = (e) => {
   e.preventDefault();
-  checkEmail(emailValue.value) && checkPassword(passwordValue.value) && checkValidate();
+  checkEmail(emailValue.value) && checkPassword(passwordValue.value) && checkConfirm(confirmPasswordValue.value) && register(
+    {
+        id: emailValue.value,
+        name: nameValue.value,
+        username: emailValue.value,
+        password: passwordValue.value
+    }
+  ).then(res => res.status === 201 ? alert("Dang ky thanh cong"): alert("Dang ky that bai"))
 };
