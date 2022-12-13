@@ -29,16 +29,16 @@ confirmPasswordValue.onchange = (e) => {
 };
 
 const register = async (obj) => {
-    const response = await fetch("http://localhost:3000/account", {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      redirect: 'follow',
-      body: JSON.stringify(obj)
-    })
-    return response;
-  };
+  const response = await fetch("http://localhost:3000/account", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    redirect: "follow",
+    body: JSON.stringify(obj),
+  });
+  return response;
+};
 
 function checkConfirm(value) {
   if (passwordValue.value === value) {
@@ -73,12 +73,20 @@ function checkPassword(value) {
 
 formRegister.onsubmit = (e) => {
   e.preventDefault();
-  checkEmail(emailValue.value) && checkPassword(passwordValue.value) && checkConfirm(confirmPasswordValue.value) && register(
-    {
-        id: emailValue.value,
-        name: nameValue.value,
-        username: emailValue.value,
-        password: passwordValue.value
-    }
-  ).then(res => res.status === 201 ? alert("Dang ky thanh cong"): alert("Dang ky that bai"))
+  checkEmail(emailValue.value) &&
+    checkPassword(passwordValue.value) &&
+    checkConfirm(confirmPasswordValue.value) &&
+    register({
+      id: emailValue.value,
+      name: nameValue.value,
+      username: emailValue.value,
+      password: passwordValue.value,
+    }).then((res) => {
+      if (res.status === 201) {
+        alert("Dang ky thanh cong");
+        window.location.assign("./src/page/login.html");
+      } else {
+        res.text().then(text => alert(text))
+      }
+    });
 };
