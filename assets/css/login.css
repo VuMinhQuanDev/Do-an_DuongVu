@@ -27,7 +27,7 @@
 }
 
 .form-header {
-    font-size: 24px;
+    font-size: 28px;
     flex: 1;
     text-align: center;
     padding: 20px;
@@ -68,9 +68,10 @@
 
 .form-submit {
     font-size: 20px;
-    color: #fff;
+    color: #000;
     padding: 10px 15px;
-    background-color: #F96969;
+    width: 200px;
+    background-color: #AAC4FF;
     border: none;
     margin: 30px 10px;
     cursor: pointer;
