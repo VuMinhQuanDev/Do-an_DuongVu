@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+    <link rel="stylesheet" href="../../assets/css/product.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="navbar">
+      <div class="main-navbar">
+        <a href="/index.html">
+          <img
+            src="https://images.squarespace-cdn.com/content/v1/58af4f871b10e3e9c3a7ace7/1488436508393-CQ4M7M2VO5CXL5BS25Q5/botw+isolated.png"
+            alt="#"
+          />
+        </a>
+      </div>
+      <div class="search-nav">
+        <input type="text" class="search-input" placeholder="Tìm Kiếm Trên" />
+        <div class="search-btn">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+      </div>
+      <div class="navbar-right">
+        <i class="fa-solid fa-cart-shopping"></i>
+        <a href="./src/pages/login.html" style="color: #fff">
+          <i class="fa-solid fa-right-to-bracket"></i>
+        </a>
+      </div>
+    </div>
+    <div class="content-info-product">
+      <div class="left-info-product">
+        <img
+          class="image-info-product"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png"
+          alt=""
+          class="product-img"
+        />
+        <div class="amount-product">
+          <div class="button-remove">-</div>
+          <input class="amount-number" type="text" value="1" onkeypress="if ( isNaN( String.fromCharCode(event.keyCode) )) return false;" />
+          <div class="button-add">+</div>
+        </div>
+        <button class="add-to-cart-btn"><a href="/src/pages/cart.html">Thêm vào giỏ hàng</a></button>
+      </div>
+      <div class="right-info-product">
+        <div class="title-info-product">Title Product</div>
+        <div class="price-info-product">
+          <span class="price-product">100$</span>
+        </div>
+        <div class="desc-info-product">
+          <p class="desc-title">Mô tả:</p>
+          <span class="desc-info"
+            >Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+            Blanditiis veritatis aspernatur architecto alias dicta atque culpa
+            velit labore facere deserunt optio, eaque assumenda quisquam rem
+            voluptas explicabo quod sint deleniti.</span
+          >
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="logo-footer">
+        <img src="" alt="" />
+      </div>
+      <div class="footer-account">
+        <h4>TÀI KHOẢN</h4>
+        <div class="footer-account__link">
+          <a href="">Đăng nhập</a>
+          <a href="">Đăng ký</a>
+          <a href="">Lịch sử mua hàng</a>
+        </div>
+      </div>
+      <div class="footer-contact">
+        <h4>LIÊN HỆ</h4>
+        <div class="footer-contact__info">
+          <p href="">Hà Nội</p>
+          <p href="">19008888</p>
+          <p href="">Example@gmail.com</p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script>
+    var MIN_AMOUNT = 1;
+    const addAmountbtn = document.querySelector(".button-add");
+    const removeAmountbtn = document.querySelector(".button-remove");
+    const amountNumber = document.querySelector(".amount-number");
+
+    function addAmount() {
+        MIN_AMOUNT += 1;
+        amountNumber.value = MIN_AMOUNT;
+    }
+
+    function removeAmount() {
+      if (Number(amountNumber.value) > 1) {
+        MIN_AMOUNT -= 1;
+        amountNumber.value = MIN_AMOUNT;
+      }
+    }
+
+    function onChangeAmount(event) {
+        return isNaN( String.fromCharCode(event.keyCode) ) && false;
+    }
+
+    addAmountbtn.addEventListener("click", addAmount);
+    removeAmountbtn.addEventListener("click", removeAmount);
+    amountNumber.addEventListener('change', (e) => {
+        if(e.target.value === '') {
+            e.target.value = 1;
+        }
+    })
+  </script>
+</html>
