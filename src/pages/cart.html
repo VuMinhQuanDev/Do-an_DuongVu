@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/cart.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    />
+    <title>Document</title>
+</head>
+<body>
+    <div class="navbar">
+        <div class="main-navbar">
+          <a href="/index.html">
+            <img
+              src="https://images.squarespace-cdn.com/content/v1/58af4f871b10e3e9c3a7ace7/1488436508393-CQ4M7M2VO5CXL5BS25Q5/botw+isolated.png"
+              alt="#"
+            />
+          </a>
+        </div>
+        <div class="search-nav">
+          <input type="text" class="search-input" placeholder="Tìm Kiếm Trên" />
+          <div class="search-btn">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </div>
+        </div>
+        <div class="navbar-right">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <a href="./src/pages/login.html" style="color: #fff">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </a>
+        </div>
+      </div>
+      <div class="cart-content">
+        <h1 class="cart-title">Giỏ Hàng</h1>
+        <div class="cart-table">
+            <div class="cart-table-header">
+                <span class="cart-header">Chọn</span>
+                <span class="cart-header">Ảnh</span>
+                <span class="cart-header">Tên sản phẩm</span>
+                <span class="cart-header">Đơn giá</span>
+                <span class="cart-header">Số lượng</span>
+                <span class="cart-header">Tổng Tiền</span>
+                <span class="cart-header">Xóa</span>
+            </div>
+            <div class="cart-list">
+                <div class="cart-list-item">
+                    <div class="cart-selection cart-col">
+                        <input type="checkbox" name="selection" id="selection">
+                    </div>
+                    <div class="cart-image cart-col">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png" alt="#">
+                    </div>
+                    <div class="cart-title cart-col">
+                        <span>Title</span>
+                    </div>
+                    <div class="cart-price cart-col">
+                        <span>100$</span>
+                    </div>
+                    <div class="cart-amount cart-col">
+                        <span>1</span>
+                    </div>
+                    <div class="cart-total cart-col">
+                        <span>100$</span>
+                    </div>
+                    <div class="cart-col">
+                        <button class="cart-remove-btn">
+                            <i class="fa-solid fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-finish">
+            <div class="cart-total-money">
+                <span>Tổng Tiền: 100$</span>
+            </div>
+            <div class="cart-confirm-pay">
+                <button class="pay-btn">
+                    <a href="/src/pages/payment.html">
+                        Thanh Toán
+                    </a>
+                </button>
+            </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="logo-footer">
+          <img src="" alt="" />
+        </div>
+        <div class="footer-account">
+          <h4>TÀI KHOẢN</h4>
+          <div class="footer-account__link">
+            <a href="">Đăng nhập</a>
+            <a href="">Đăng ký</a>
+            <a href="">Lịch sử mua hàng</a>
+          </div>
+        </div>
+        <div class="footer-contact">
+          <h4>LIÊN HỆ</h4>
+          <div class="footer-contact__info">
+            <p href="">Hà Nội</p>
+            <p href="">19008888</p>
+            <p href="">Example@gmail.com</p>
+          </div>
+        </div>
+      </div>
+</body>
+</html>
